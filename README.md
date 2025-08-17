@@ -16,13 +16,23 @@ Threading
   - scheduledThreadPool
   - singleThreadedExecutor
 4. Runnable interface vs Callable interface (run(), call())
+Ans:
+The Runnable and Callable interfaces in Java are both used to represent tasks that can be executed by a thread, but they have important differences.
+
+The Runnable interface is older and simpler. It defines a single method, run(), which does not return a result and cannot throw a checked exception. You typically use Runnable when you want to execute code concurrently but do not need a result from the task.
+
+The Callable interface, introduced in Java 5, is more flexible. It defines a single method, call(), which can return a result and throw checked exceptions. This makes Callable suitable for tasks that produce a result or might fail with an exception. When you submit a Callable to an ExecutorService, it returns a Future object, which you can use to retrieve the result or handle exceptions.
+
+In summary, use Runnable for simple tasks that do not return a result, and use Callable when you need the task to return a value or throw an exception.
+
 5. Concurrency vs Parallelism
 6. ForkJoinPool
 7. FunctionalInterface
   - single abstract method (ex. Consumer, Function, Runnable)
 8. What are the advantages and disadvantages of Collections.synchronizedCollection(Collection<T>)
 9. java.util.concurrent
-  - ConcurrentHashMap (shared cache), CopyOnWriteArrayList, CopyOnWriteArraySet, ConcurrentLinkedQueue (Producer-consumer, task queues)
+  - ConcurrentHashMap (shared cache), 
+  CopyOnWriteArrayList, CopyOnWriteArraySet, ConcurrentLinkedQueue (Producer-consumer, task queues)
 10. @EnableScheduling
     - Enables scheduling support for methods annotated with @Scheduled
 11. @RestControllerAdvice, @Primary, @Qualifier
